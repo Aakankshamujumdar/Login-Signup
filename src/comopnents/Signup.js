@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 export default function Signup() {
   const {
     register,
@@ -7,13 +8,23 @@ export default function Signup() {
     formState: { errors },
   } = useForm();
 
+  const a = useNavigate()
+
   const onSubmit = (data) => {
     console.log(data);
+    a("/login");
   };
 
-  const defaultValue = "+91"
+  const handleLogin=()=>{
+    a("/login")
+  }
+
+
+
+
 
   return (
+
     <body>
       <div class="wrapper">
         <form action="" onSubmit={handleSubmit(onSubmit)}>
@@ -57,6 +68,7 @@ export default function Signup() {
           </div>
 
           <div className="input-box">
+            <span className="text">+91</span>
             <input
               type="number"
               placeholder="Phone-no"
@@ -69,14 +81,12 @@ export default function Signup() {
                 },
                 
               })}
-              defaultValue="+91" 
             ></input>
             <box-icon type="solid" name="phone"></box-icon>
             {errors.phone && (
               <p style={{ color: "red" }}>{errors.phone.message}</p>
             )}
           </div>
-
           <div className="input-box">
             <input
               type="password"
@@ -118,6 +128,11 @@ export default function Signup() {
           <button type="submit" class="btn">
             Sign Up
           </button>
+          <div className="register-link">
+            <p>
+              Already have an account? <a onClick={handleLogin} href="#">Login </a>{" "}
+            </p>
+          </div>
         </form>
       </div>
     </body>

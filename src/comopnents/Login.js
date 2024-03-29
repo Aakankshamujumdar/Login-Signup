@@ -2,16 +2,23 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import "boxicons";
 import "../css/login.css";
+import { useNavigate } from "react-router-dom";
 export default function Login() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm();  
 
   const onSubmit = (data) => {
     console.log(data);
   };
+
+const b = useNavigate()
+ const handleRegister=()=>{
+   b("/");
+ }
+
   return (
     <body>
       <div className="wrapper">
@@ -68,7 +75,7 @@ export default function Login() {
           </button>
           <div className="register-link">
             <p>
-              Don't have an account? <a href="#">Register</a>{" "}
+              Don't have an account? <a onClick={handleRegister} href="#">Register</a>{" "}
             </p>
           </div>
         </form>

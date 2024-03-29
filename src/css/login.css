@@ -51,7 +51,7 @@ body {
     padding: 20px 45px 20px 20px;
 }
 .input-box input::placeholder{
-    color: #fff;
+    color: rgb(161, 157, 157);
 }
 
 .input-box box-icon {
@@ -110,3 +110,17 @@ body {
     text-decoration: underline;
 
 }
+.input-box {
+    position: relative;
+  }
+  
+  .text {
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  input[type="number"] {
+    padding-left: 30px; /* Adjust the value according to your needs */
+  }
